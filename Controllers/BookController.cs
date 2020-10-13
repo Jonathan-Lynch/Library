@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using capstone.Data;
 using capstone.Models;
@@ -10,32 +11,36 @@ using Microsoft.Extensions.Logging;
 
 namespace capstone.Controllers
 {
-    [Authorize]
     [ApiController]
     [Route("[controller]")]
     public class BookController : ControllerBase
     {
+        private readonly ApplicationDbContext _context;
+
+        public BookController(ApplicationDbContext context)
+        {
+            _context = context;
+        }
 
         [HttpGet]
         public IEnumerable<Book> Get()
         {
-            Book[] books = null;
-            using (var context = new ApplicationDbContext())
-            {
-                books = context.Books.ToArray();
-            }
-            return books;
+            var UserId = HttpContext.User.FindFirst(ClaimTypes.NameIdentifier).Value;
 
-        }
-        [HttpPost]
-        public Book Post([FromBody]Book book)
-        {
-            using (var context = new ApplicationDbContext())
-            {
-                context.Books.Add(book);
-                context.SaveChanges();
+            if (UserId == null) {
+                return _context.Books;
             }
-            return book;
+            return _context.Books.Where(m => m.UserId == UserId);
+        }
+
+        [HttpPost]
+        public Book Post([FromBody]Book books)
+        {
+            books.UserId = HttpContext.User.FindFirst(ClaimTypes.NameIdentifier).Value;
+            _context.Add(books);
+            _context.SaveChanges();
+
+            return books;
         }
     }
 }
