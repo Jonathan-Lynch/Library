@@ -13,6 +13,7 @@ import { BookComponent } from './book/book.component';
 import { LoginComponent } from '../api-authorization/login/login.component';
 import { ReadingBookComponent } from './reading-book/reading-book.component';
 import { ReadBookComponent } from './read-book/read-book.component';
+import { TableContextComponent } from './table-context/table-context.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { ReadBookComponent } from './read-book/read-book.component';
     BookComponent,
     ReadingBookComponent,
     ReadBookComponent,
+    TableContextComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -33,6 +35,7 @@ import { ReadBookComponent } from './read-book/read-book.component';
       { path: 'books', component: BookComponent, canActivate: [AuthorizeGuard] },
       { path: 'readings', component: ReadingBookComponent, canActivate: [AuthorizeGuard]},
       { path: 'reads', component: ReadBookComponent, canActivate: [AuthorizeGuard]},
+      { path: 'contexts', component: TableContextComponent, canActivate: [AuthorizeGuard]},
       { path: '**', component: LoginComponent}
 
     ])
