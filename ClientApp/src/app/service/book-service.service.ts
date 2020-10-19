@@ -12,6 +12,17 @@ import { ReadingBookComponent } from '../reading-book/reading-book.component';
 
     books: Ibook[];
     statuses = ['Want to Read', 'Reading', 'Read'];
+    public bookList: Ibook[];
+    public newBook: Ibook = {
+    id: undefined,
+    title: '',
+    author: '',
+    genre: '',
+    chapters: 0,
+    yearOfPublish: null,
+    description: '',
+    status: '',
+  };
 
     constructor(private httpClient: HttpClient, @Inject('BASE_URL') private baseUrl: string) { }
 

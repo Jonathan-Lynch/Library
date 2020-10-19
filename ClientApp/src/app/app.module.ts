@@ -11,9 +11,7 @@ import { AuthorizeGuard } from 'src/api-authorization/authorize.guard';
 import { AuthorizeInterceptor } from 'src/api-authorization/authorize.interceptor';
 import { BookComponent } from './book/book.component';
 import { LoginComponent } from '../api-authorization/login/login.component';
-import { ReadingBookComponent } from './reading-book/reading-book.component';
-import { ReadBookComponent } from './read-book/read-book.component';
-import { TableContextComponent } from './table-context/table-context.component';
+import { CreateBookComponent } from './create-book/create-book.component';
 
 @NgModule({
   declarations: [
@@ -21,9 +19,7 @@ import { TableContextComponent } from './table-context/table-context.component';
     NavMenuComponent,
     HomeComponent,
     BookComponent,
-    ReadingBookComponent,
-    ReadBookComponent,
-    TableContextComponent,
+    CreateBookComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -33,9 +29,7 @@ import { TableContextComponent } from './table-context/table-context.component';
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'books', component: BookComponent, canActivate: [AuthorizeGuard] },
-      { path: 'readings', component: ReadingBookComponent, canActivate: [AuthorizeGuard]},
-      { path: 'reads', component: ReadBookComponent, canActivate: [AuthorizeGuard]},
-      { path: 'contexts', component: TableContextComponent, canActivate: [AuthorizeGuard]},
+      { path: 'creates', component: CreateBookComponent, canActivate: [AuthorizeGuard]},
       { path: '**', component: LoginComponent}
 
     ])
