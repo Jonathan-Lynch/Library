@@ -1,1 +1,62 @@
-<p>This works</p>
+<h1>Book Library</h1>
+
+<p *ngIf="!bookList"><em>Loading...</em></p>
+
+<table class='table table-striped' aria-labelledby="tableLabel" *ngIf="bookList">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Title</th>
+            <th>Author</th>
+            <th>Genre</th>
+            <th>Chapters</th>
+            <th>Published</th>
+            <th>Description</th>
+            <th>Status</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <tr *ngFor="let book of bookList">
+            <td>{{book.id}}</td>
+            <td>{{book.title}}</td>
+            <td>{{book.author}}</td>
+            <td>{{book.genre}}</td>
+            <td>{{book.chapters}}</td>
+            <td>{{book.yearOfPublish}}</td>
+            <td>{{book.description}}</td>
+            <td>{{book.status}}</td>
+        </tr>
+    </tbody>
+
+     <div class="row">
+        <div class="col-2"><label>Book Title</label></div>
+        <div class="col-6"><input [(ngModel)]="newBook.title" type="text" placeholder="Title" class="smallInput"></div>
+    </div>
+
+    <div class="row">
+        <div class="col-2"><label>Author</label></div>
+        <div class="col-6"><input [(ngModel)]="newBook.author" type="text" placeholder="Author" class="smallInput"></div>
+    </div>
+
+    <div class="row">
+        <div class="col-2"><label>Genre</label></div>
+        <div class="col-6"><input [(ngModel)]="newBook.genre" type="text" placeholder="Genre" class="smallInput"></div>
+    </div>
+
+    <div class="row">
+        <div class="col-2"><label>Chapters</label></div>
+        <div class="col-6"><input [(ngModel)]="newBook.chapters" type="number" placeholder="Chapters" class="smallInput"></div>
+    </div>
+
+    <div class="row">
+        <div class="col-2"><label>Published</label></div>
+        <div class="col-6"><input [(ngModel)]="newBook.yearOfPublish" type="date" placeholder="yearOfPublish" class="smallInput"></div>
+    </div>
+
+    <div class="row">
+        <div class="col-2"><label>Description</label></div>
+        <div class="col-6"><input [(ngModel)]="newBook.description" type="string" placeholder="Description" class="smallInput"></div>
+    </div>
+
+    <button (click)="addBook()">Save</button>

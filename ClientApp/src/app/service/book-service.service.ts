@@ -10,7 +10,7 @@ import { CreateBookComponent } from '../create-book/create-book.component';
   export class BookService {
 
     books: Ibook[];
-    statuses = ['Want to Read', 'Reading', 'Read'];
+    statuses = ['New', 'Reading', 'Read'];
     public bookList: Ibook[];
     public newBook: Ibook = {
     id: undefined,

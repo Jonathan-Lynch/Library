@@ -20,15 +20,18 @@ export class CreateBookComponent implements OnInit {
         description: '',
         status: '',
       };
+    books: Ibook[];
+    something: string[];
 
   constructor(private bookService: BookService) { }
 
   async ngOnInit() {
     this.bookList = await this.bookService.getBook();
+    this.something = this.bookService.statuses;
   }
 
   public async addBook() {
-    const newBook = await this.bookService.addBook(this.newBook);
-    this.bookList.push(newBook);
+    this.newBook = {title: '', author: '', genre: '', chapters: 0, yearOfPublish: null, description: '', status: 'New' };
+    this.bookList.push(this.newBook);
   }
 }
