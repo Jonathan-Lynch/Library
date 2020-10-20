@@ -2,8 +2,7 @@ import { Inject, Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Ibook } from '../interfaces/ibook';
 import { BookComponent } from '../book/book.component';
-import { ReadBookComponent } from '../read-book/read-book.component';
-import { ReadingBookComponent } from '../reading-book/reading-book.component';
+import { CreateBookComponent } from '../create-book/create-book.component';
 
 @Injectable({
     providedIn: 'root'
