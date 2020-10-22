@@ -12,6 +12,9 @@ import { AuthorizeInterceptor } from 'src/api-authorization/authorize.intercepto
 import { BookComponent } from './book/book.component';
 import { LoginComponent } from '../api-authorization/login/login.component';
 import { CreateBookComponent } from './create-book/create-book.component';
+import { MatButtonModule } from '@angular/material/button';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -20,6 +23,8 @@ import { CreateBookComponent } from './create-book/create-book.component';
     HomeComponent,
     BookComponent,
     CreateBookComponent,
+    MatExpansionModule,
+    MatButtonModule,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -32,7 +37,8 @@ import { CreateBookComponent } from './create-book/create-book.component';
       { path: 'creates', component: CreateBookComponent, canActivate: [AuthorizeGuard]},
       { path: '**', component: LoginComponent}
 
-    ])
+    ]),
+    BrowserAnimationsModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthorizeInterceptor, multi: true }

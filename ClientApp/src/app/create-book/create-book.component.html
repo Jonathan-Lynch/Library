@@ -16,6 +16,7 @@
         </tr>
     </thead>
 
+
     <tbody>
         <tr *ngFor="let book of bookList">
             <td>{{book.id}}</td>
@@ -57,6 +58,14 @@
     <div class="row">
         <div class="col-2"><label>Description</label></div>
         <div class="col-6"><input [(ngModel)]="newBook.description" type="string" placeholder="Description" class="smallInput"></div>
+    </div>
+
+    <div class="row">
+        <div class="col-2"><label>Description</label></div>
+        <div class="col-6">
+            <select [(ngModel)]="newBook.status">
+            <option *ngFor="let status of something" [value]="status">{{status}}</option>
+        </select></div>
     </div>
 
     <button (click)="addBook()">Save</button>
