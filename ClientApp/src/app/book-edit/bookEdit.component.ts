@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Ibook } from '../interfaces/ibook';
 import { BookService } from '../service/book-service.service';
+import { NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-book',
@@ -10,16 +11,7 @@ import { BookService } from '../service/book-service.service';
 export class BookEditComponent implements OnInit {
 
   public bookList: Ibook[];
-  public newBook: Ibook = {
-    id: undefined,
-    title: '',
-    author: '',
-    genre: '',
-    chapters: 0,
-    yearOfPublish: null,
-    description: '',
-    status: '',
-  };
+  updateBook: Ibook;
 
   constructor(private bookService: BookService) { }
 
@@ -27,8 +19,7 @@ export class BookEditComponent implements OnInit {
     this.bookList = await this.bookService.getBook();
   }
 
-  public async addBook() {
-    const newBook = await this.bookService.addBook(this.newBook);
-    this.bookList.push(newBook);
+  async save(): Promise<void> {
+    await this.bookService.updateBook(this.updateBook, this.updateBook.id);
   }
 }

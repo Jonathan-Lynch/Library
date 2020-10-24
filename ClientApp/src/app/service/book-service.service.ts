@@ -33,4 +33,8 @@ import { CreateBookComponent } from '../create-book/create-book.component';
       return this.httpClient.post<Ibook>(`${this.baseUrl}book`, book).toPromise();
     }
 
+    public async updateBook(book: Ibook, id: number): Promise<Ibook> {
+      return this.httpClient.put<Ibook>(`${this.baseUrl}book/${id}`, book).toPromise();
+    }
+
 }

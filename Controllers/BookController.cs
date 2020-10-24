@@ -25,7 +25,7 @@ namespace capstone.Controllers
         [HttpGet]
         public IEnumerable<Book> Get()
         {
-            var userId = HttpContext.User.FindFirst(ClaimTypes.NameIdentifier).Value;
+            var userId = HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier);
 
             if (userId == null) {
                 return _context.Books;

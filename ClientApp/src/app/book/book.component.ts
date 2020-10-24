@@ -12,6 +12,7 @@ export class BookComponent implements OnInit {
 
   public bookList: Ibook[];
   statuses;
+  newStatus: Ibook[] = [];
   public newBook: Ibook = {
     id: undefined,
     title: '',
@@ -29,6 +30,7 @@ export class BookComponent implements OnInit {
 
   async ngOnInit() {
     this.bookList = await this.bookService.getBook();
+    this.newStatus = this.bookList.filter(b => b.status === 'New');
   }
 
   public async addBook() {
