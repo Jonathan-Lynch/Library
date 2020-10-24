@@ -33,7 +33,7 @@ export class CreateBookComponent implements OnInit {
 
   public async addBook() {
     this.bookService.addBook(this.newBook);
-    this.bookList.push(this.newBook);
+    // this.bookList.push(this.newBook);
     this.newBook = {title: '', author: '', genre: '', chapters: 0, yearOfPublish: null, description: '', status: '' };
   }
 }

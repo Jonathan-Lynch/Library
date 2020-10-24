@@ -23,14 +23,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     HomeComponent,
     BookComponent,
     CreateBookComponent,
-    MatExpansionModule,
-    MatButtonModule,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
     HttpClientModule,
     FormsModule,
     ApiAuthorizationModule,
+    MatExpansionModule,
+    MatButtonModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'books', component: BookComponent, canActivate: [AuthorizeGuard] },
