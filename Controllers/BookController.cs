@@ -36,7 +36,7 @@ namespace capstone.Controllers
         [HttpPost]
         public Book Post([FromBody]Book books)
         {
-            books.UserId = HttpContext.User.FindFirst(ClaimTypes.NameIdentifier).Value;
+            books.UserId = HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier);
             _context.Add(books);
             _context.SaveChanges();
 

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Ibook } from '../interfaces/ibook';
 import { BookService } from '../service/book-service.service';
 
+
 @Component({
   selector: 'app-book',
   templateUrl: './bookEdit.component.html',
