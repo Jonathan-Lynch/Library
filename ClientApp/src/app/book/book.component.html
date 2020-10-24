@@ -1,0 +1,37 @@
+<div class="container">
+    <div class="row">
+      <div class="col-sm">
+        One of three columns
+      </div>
+      <div class="col-sm">
+        One of three columns
+      </div>
+      <div class="col-sm">
+        One of three columns
+      </div>
+    </div>
+  </div>
+
+<mat-expansion-panel *ngFor="let book of bookList">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        <td>{{book.id}}</td>
+      </mat-panel-title>
+      <mat-panel-description>
+        <p>{{book.title}}</p>
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+  
+    <p><b>Author: </b>{{book.author}}</p>
+    <hr>
+    <p><b>Chapters: </b>{{book.chapters}}</p>
+    <hr>
+    <p><b>Genre: </b>{{book.genre}}</p>
+    <hr>
+    <p><b>Status: </b>{{book.status}}</p>
+    <hr>
+    <p><b>Publish: </b>{{book.yearOfPublish}}</p>
+    <hr>
+    <p><b>Description: </b>{{book.description}}</p>
+  
+  </mat-expansion-panel>

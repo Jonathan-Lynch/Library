@@ -10,6 +10,7 @@ import { BookService } from '../service/book-service.service';
 export class BookComponent implements OnInit {
 
   public bookList: Ibook[];
+  statuses;
   public newBook: Ibook = {
     id: undefined,
     title: '',
@@ -21,7 +22,9 @@ export class BookComponent implements OnInit {
     status: '',
   };
 
-  constructor(private bookService: BookService) { }
+  constructor(private bookService: BookService) {
+    this.statuses = bookService.statuses;
+  }
 
   async ngOnInit() {
     this.bookList = await this.bookService.getBook();
