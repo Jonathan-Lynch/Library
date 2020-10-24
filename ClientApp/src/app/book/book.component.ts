@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Ibook } from '../interfaces/ibook';
 import { BookService } from '../service/book-service.service';
+import { MatSort } from '@angular/material/sort';
 
 @Component({
   selector: 'app-book',

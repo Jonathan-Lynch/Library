@@ -42,5 +42,24 @@ namespace capstone.Controllers
 
             return books;
         }
+
+        [HttpDelete]
+        public void Delete([FromRoute] int id) 
+        {
+            var books = _context.Books.FirstOrDefault(b => b.Id == id);
+            _context.Books.Remove(books);
+            _context.SaveChanges();
+        }
+
+        [HttpPut("{id}")]
+        public Book Put([FromRoute] int id, [FromBody] Book book) 
+        {
+            var currentBook = _context.Books.Find(book.Id);
+            if (currentBook == null) return null;
+            _context.Entry(currentBook).CurrentValues.SetValues(book);
+            _context.Books.Update(currentBook);
+            _context.SaveChanges();
+            return currentBook;
+        }
     }
 }
