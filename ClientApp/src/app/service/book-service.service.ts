@@ -3,6 +3,8 @@ import { HttpClient } from '@angular/common/http';
 import { Ibook } from '../interfaces/ibook';
 import { BookComponent } from '../book/book.component';
 import { CreateBookComponent } from '../create-book/create-book.component';
+import { BookReadingComponent } from '../book-reading/bookReading.component';
+import { BookReadComponent } from '../book-read/bookRead.component';
 
 @Injectable({
     providedIn: 'root'

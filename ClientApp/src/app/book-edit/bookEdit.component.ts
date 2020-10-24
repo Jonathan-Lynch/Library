@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Ibook } from '../interfaces/ibook';
 import { BookService } from '../service/book-service.service';
-import { NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-book',
