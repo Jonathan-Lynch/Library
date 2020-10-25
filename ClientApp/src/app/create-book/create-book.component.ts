@@ -3,7 +3,7 @@ import { Ibook } from '../interfaces/ibook';
 import { BookService } from '../service/book-service.service';
 
 @Component({
-  selector: 'app-book',
+  selector: 'app-create-book',
   templateUrl: './create-book.component.html',
   styleUrls: ['./create-book.component.css']
 })

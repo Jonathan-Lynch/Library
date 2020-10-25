@@ -5,7 +5,7 @@ import { MatSort } from '@angular/material/sort';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-book',
+  selector: 'app-book-read',
   templateUrl: './bookRead.component.html',
   styleUrls: ['./bookRead.component.css']
 })
