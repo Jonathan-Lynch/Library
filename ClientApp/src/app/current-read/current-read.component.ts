@@ -5,11 +5,11 @@ import { MatSort } from '@angular/material/sort';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-book-read',
-  templateUrl: './book-read.component.html',
-  styleUrls: ['./book-read.component.css']
+  selector: 'app-current-read',
+  templateUrl: './current-read.component.html',
+  styleUrls: ['./current-read.component.css']
 })
-export class BookReadComponent implements OnInit {
+export class CurrentReadComponent implements OnInit {
 
   public bookList: Ibook[];
   statuses;
@@ -45,4 +45,5 @@ export class BookReadComponent implements OnInit {
     //this.router.navigate(['/readings']);
     window.location.reload();
   }
+
 }

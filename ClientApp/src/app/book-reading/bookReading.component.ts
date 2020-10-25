@@ -6,8 +6,8 @@ import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-book-reading',
-  templateUrl: './book-reading.component.html',
-  styleUrls: ['./book-reading.component.css']
+  templateUrl: './bookReading.component.html',
+  styleUrls: ['./bookReading.component.css']
 })
 export class BookReadingComponent implements OnInit {
 
@@ -41,8 +41,8 @@ export class BookReadingComponent implements OnInit {
 
   public async deleteBook(id) {
     await this.bookService.DeleteBook(id);
-    //this.bookList = await this.bookService.getBook();
-    //this.router.navigate(['/readings']);
+    // this.bookList = await this.bookService.getBook();
+    // this.router.navigate(['/readings']);
     window.location.reload();
   }
 }
