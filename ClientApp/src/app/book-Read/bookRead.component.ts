@@ -41,7 +41,8 @@ export class BookReadComponent implements OnInit {
 
   public async deleteBook(id) {
     await this.bookService.DeleteBook(id);
-    this.bookList = await this.bookService.getBook();
-    this.router.navigate(['/']);
+    //this.bookList = await this.bookService.getBook();
+    //this.router.navigate(['/readings']);
+    window.location.reload();
   }
 }
