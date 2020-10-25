@@ -5,6 +5,7 @@ import { BookComponent } from '../book/book.component';
 import { CreateBookComponent } from '../create-book/create-book.component';
 import { BookReadingComponent } from '../book-reading/bookReading.component';
 import { BookReadComponent } from '../book-read/bookRead.component';
+import { BookEditComponent } from '../book-edit/bookEdit.component';
 
 @Injectable({
     providedIn: 'root'
@@ -23,12 +24,16 @@ import { BookReadComponent } from '../book-read/bookRead.component';
     yearOfPublish: null,
     description: '',
     status: '',
-  };
+    };
 
     constructor(private httpClient: HttpClient, @Inject('BASE_URL') private baseUrl: string) { }
 
     public async getBook(): Promise<Ibook[]> {
       return this.httpClient.get<Ibook[]>(`${this.baseUrl}book`).toPromise();
+    }
+
+    async GetBooks(id: number) {
+      return await this.httpClient.get<Ibook>(`${this.baseUrl}books/${id}`).toPromise();
     }
 
     public async addBook(book: Ibook): Promise<Ibook> {
@@ -38,5 +43,4 @@ import { BookReadComponent } from '../book-read/bookRead.component';
     public async updateBook(book: Ibook, id: number): Promise<Ibook> {
       return this.httpClient.put<Ibook>(`${this.baseUrl}book/${id}`, book).toPromise();
     }
-
 }

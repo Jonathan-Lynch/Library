@@ -23,9 +23,12 @@ export class BookComponent implements OnInit {
     description: '',
     status: '',
   };
+books: Ibook[];
+something: string[];
 
   constructor(private bookService: BookService) {
     this.statuses = bookService.statuses;
+    //this.bookList = await this.bookService.GetBooks();
   }
 
   async ngOnInit() {

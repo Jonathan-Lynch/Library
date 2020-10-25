@@ -17,6 +17,7 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BookReadingComponent } from './book-reading/bookReading.component';
 import { BookReadComponent } from './book-read/bookRead.component';
+import { BookEditComponent } from './book-edit/bookEdit.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { BookReadComponent } from './book-read/bookRead.component';
     CreateBookComponent,
     BookReadingComponent,
     BookReadComponent,
+    BookEditComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -41,6 +43,7 @@ import { BookReadComponent } from './book-read/bookRead.component';
       { path: 'creates', component: CreateBookComponent, canActivate: [AuthorizeGuard] },
       { path: 'readings', component: BookReadingComponent, canActivate: [AuthorizeGuard] },
       { path: 'reads', component: BookReadComponent, canActivate: [AuthorizeGuard] },
+      { path: 'edit/:id', component: BookEditComponent, canActivate: [AuthorizeGuard] },
       { path: '**', component: LoginComponent },
 
     ]),

@@ -33,6 +33,15 @@ namespace capstone.Controllers
             return _context.Books.Where(m => m.UserId == userId);
         }
 
+        [HttpGet("{id}")]
+        public Book Get([FromRoute] int id) 
+        {
+            var userId = HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier);
+            var books = _context.Books.Where(b => b.UserId == userId).FirstOrDefault(b => b.Id == id);
+            if (books == null) return null;
+            return books;
+        }
+
         [HttpPost]
         public Book Post([FromBody]Book books)
         {
@@ -43,7 +52,7 @@ namespace capstone.Controllers
             return books;
         }
 
-        [HttpDelete]
+        [HttpDelete("{id}")]
         public void Delete([FromRoute] int id) 
         {
             var books = _context.Books.FirstOrDefault(b => b.Id == id);
