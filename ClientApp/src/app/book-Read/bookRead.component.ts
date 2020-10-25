@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Ibook } from '../interfaces/ibook';
 import { BookService } from '../service/book-service.service';
 import { MatSort } from '@angular/material/sort';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-book',
@@ -24,7 +25,7 @@ export class BookReadComponent implements OnInit {
     status: '',
   };
 
-  constructor(private bookService: BookService) {
+  constructor(private bookService: BookService, private router: Router) {
     this.statuses = bookService.statuses;
   }
 
@@ -36,5 +37,11 @@ export class BookReadComponent implements OnInit {
   public async addBook() {
     const newBook = await this.bookService.addBook(this.newBook);
     this.bookList.push(newBook);
+  }
+
+  public async deleteBook(id) {
+    await this.bookService.DeleteBook(id);
+    this.bookList = await this.bookService.getBook();
+    this.router.navigate(['/']);
   }
 }

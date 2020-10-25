@@ -33,7 +33,7 @@ import { BookEditComponent } from '../book-edit/bookEdit.component';
     }
 
     async GetBooks(id: number) {
-      return await this.httpClient.get<Ibook>(`${this.baseUrl}books/${id}`).toPromise();
+      return await this.httpClient.get<Ibook>(`${this.baseUrl}book/${id}`).toPromise();
     }
 
     public async addBook(book: Ibook): Promise<Ibook> {
@@ -42,5 +42,9 @@ import { BookEditComponent } from '../book-edit/bookEdit.component';
 
     public async updateBook(book: Ibook, id: number): Promise<Ibook> {
       return this.httpClient.put<Ibook>(`${this.baseUrl}book/${id}`, book).toPromise();
+    }
+
+    async DeleteBook(id: number) {
+      return await this.httpClient.delete<Ibook>(`${this.baseUrl}book/${id}`).toPromise();
     }
 }

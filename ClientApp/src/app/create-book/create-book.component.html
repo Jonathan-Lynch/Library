@@ -1,27 +1,5 @@
 <h1>Create Book</h1>
 
-<table class='table table-striped' aria-labelledby="tableLabel" *ngIf="bookList">
-    <thead>
-        <tr>
-            <th>Id</th>
-            <th>Book Title</th>
-            <th>Author</th>
-            <th>Genre</th>
-            <th>Number of Chapters</th>
-            <th>Published</th>
-        </tr>
-    </thead>  
-
-    <tbody>
-        <tr *ngFor="let book of bookList">
-            <td>{{book.id}}</td>
-            <td>{{book.title}}</td>
-            <td>{{book.author}}</td>
-            <td>{{book.genre}}</td>
-            <td>{{book.chapters}}</td>
-            <td>{{book.yearOfPublish}}</td>
-        </tr>
-    </tbody>
 
 <p *ngIf="!bookList"><em>Loading...</em></p>
 
