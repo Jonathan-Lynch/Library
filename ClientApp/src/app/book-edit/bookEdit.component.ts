@@ -5,8 +5,8 @@ import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-book-edit',
-  templateUrl: './bookEdit.component.html',
-  styleUrls: ['./bookEdit.component.css']
+  templateUrl: './book-edit.component.html',
+  styleUrls: ['./book-edit.component.css']
 })
 export class BookEditComponent implements OnInit {
 

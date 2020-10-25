@@ -6,8 +6,8 @@ import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-book-read',
-  templateUrl: './bookRead.component.html',
-  styleUrls: ['./bookRead.component.css']
+  templateUrl: './book-read.component.html',
+  styleUrls: ['./book-read.component.css']
 })
 export class BookReadComponent implements OnInit {
 
